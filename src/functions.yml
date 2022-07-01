@@ -1,0 +1,14 @@
+ResizingImageTrigger:
+  handler: src/triggers/resizingImage.handler
+  package:
+    patterns:
+      - 'src/triggers/**'
+  events:
+    - s3:
+        bucket: 
+        event: s3:ObjectCreated:*
+        existing: true
+        rules:
+          - prefix: upload/
+  layers:
+    - 

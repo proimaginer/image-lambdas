@@ -1,0 +1,26 @@
+{
+  "name": "image-lambdas",
+  "version": "1.0.0",
+  "description": "이미지 관련 Lambda",
+  "author": "Lee JungJoon <leejj90@naver.com>",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.1166.0",
+    "sharp": "^0.30.7"
+  },
+  "devDependencies": {
+    "eslint": "^8.8.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "serverless-dotenv-plugin": "^3.12.2",
+    "serverless-latest-layer-version": "^2.1.1",
+    "serverless-offline": "^8.4.0"
+  },
+  "scripts": {
+    "update": "npm cache clean --force && rm -rf ./node_modules && rm -rf ./package-lock.json && npm install",
+    "deploy:dev": "sls --aws-profile my deploy --stage dev",
+    "deploy:prd": "sls --aws-profile my deploy --stage prd"
+  }
+}

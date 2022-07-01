@@ -1,0 +1,30 @@
+# 서비스명
+service: image-lambda-layers
+
+# 제공자
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage}
+  region: ap-northeast-2
+  deploymentBucket:
+    name: image-deploy-source
+    serverSideEncryption: AES256
+  deploymentPrefix: serverless
+
+layers:
+  modules:
+    path: ./modules
+    name: CommunityModules-${self:provider.stage} # optional, Deployed Lambda layer name
+    description: image-lambdas node_modules lambda layer # optional, Description to publish to AWS
+    compatibleRuntimes: # optional, a list of runtimes this layer is compatible with
+      - nodejs14.x
+
+# 패키지
+package:
+  patterns:
+    - '!.gitmodules'
+    - '!.git/**'
+    - '!.idea/**'
+    - '!package-lock.json'
+    - '!package.json'

@@ -1,0 +1,56 @@
+service: image-lambdas
+
+# https://www.serverless.com/framework/docs/deprecations/#NEW_VARIABLES_RESOLVER
+useDotenv: true
+variablesResolutionMode: 20210326
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-latest-layer-version
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage}
+  region: ap-northeast-2
+  memorySize: 1024 # optional, in MB, default is 1024
+  timeout: 60 # optional, in seconds, default is 10
+  versionFunctions: false # optional, default is true
+  vpc:
+    securityGroupIds:
+      - sg-02224391ccca1a03c
+    subnetIds:
+      - subnet-0413a36471a09c093
+      - subnet-07cc0e089f53ac45e
+  logs:
+    restApi:
+      executionLogging: true # CloudWatch 설정 -> CloudWatch 로그 활성화 true / false
+      level: ERROR # CloudWatch 설정 -> 로그 수준 INFO or ERROR.
+      fullExecutionData: false # CloudWatch 설정 -> 전체 요청/응답 데이터 로깅 true / false
+      accessLogging: false # 사용자 지정 액세스 로깅 -> 액세스 로그 활성화 true / false
+  deploymentBucket:
+    name: image-deploy-source
+    serverSideEncryption: AES256
+  deploymentPrefix: serverless
+
+functions: ${file(./src/functions.yml)}
+
+package:
+  individually: true
+  patterns:
+    - '!.git/**'
+    - '!.gitignore'
+    - '!.DS_Store'
+    - '!npm-debug.log'
+    - '!.serverless/**'
+    - '!.serverless_plugins/**'
+    - '!.eslintrc'
+    - '!.idea/**'
+    - '!bitbucket-pipelines.yml'
+    - '!package.json'
+    - '!package-lock.json'
+    - '!README.md'
+    - '!node_modules/**'
+    - '!layer/**'
+    - '!src/**'

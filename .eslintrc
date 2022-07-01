@@ -1,0 +1,43 @@
+{
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "extends": [
+    "airbnb",
+    "eslint:recommended"
+  ],
+  "rules": {
+    "strict": 0,
+    "prefer-destructuring": 0,
+    "no-console": 0,
+    "no-multi-spaces": 0,
+    "import/no-dynamic-require": 0,
+    "spaced-comment": ["error", "always", {
+      "line": {
+        "markers": ["/"],
+        "exceptions": ["-", "+"]
+      },
+      "block": {
+        "markers": ["!"],
+        "exceptions": ["*"],
+        "balanced": true
+      }
+    }],
+    "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],  // https://eslint.org/docs/rules/arrow-body-style#as-needed
+    "skipBlankLines": 0,
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "no-underscore-dangle": "off",
+    "no-param-reassign": "off",
+    "max-len": ["error", {
+      "code": 120,
+      "ignoreComments": true,
+      "ignoreTrailingComments": true,
+      "ignoreUrls": true,
+      "ignoreTemplateLiterals": true
+    }]
+  }
+}
