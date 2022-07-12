@@ -1,14 +1,31 @@
-ResizingImageTrigger:
-  handler: src/triggers/resizingImage.handler
+# /gallery 리사이즈 이미지 생성 함수
+GallerySetImg:
+  handler: src/gallery/setImg.handler
   package:
     patterns:
-      - 'src/triggers/**'
+      - 'src/gallery/setImg.js'
   events:
     - s3:
         bucket: 
         event: s3:ObjectCreated:*
         existing: true
         rules:
-          - prefix: upload/
+          - prefix: potocard/
   layers:
-    - 
+    - {env:LAYER_MODULES}
+
+# /gallery 썸네일 이미지 생성 함수
+GalleryThmbn:
+  handler: src/gallery/setThmbn.handler
+  package:
+    patterns:
+      - 'src/gallery/setThmbn.js'
+  events:
+    - s3:
+        bucket: 
+        event: s3:ObjectCreated:*
+        existing: true
+        rules:
+          - prefix: potocard/
+  layers:
+    - {env:LAYER_MODULES}

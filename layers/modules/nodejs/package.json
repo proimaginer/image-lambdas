@@ -1,0 +1,13 @@
+{
+  "name": "image-lambda-layers",
+  "version": "1.0.0",
+  "description": "이미지 관련 Lambda layers",
+  "dependencies": {
+    "aws-sdk": "^2.556.0",
+    "sharp": "^0.30.7"
+  },
+  "scripts": {
+    "update": "npm cache clean --force && rm -rf ./node_modules && rm -rf ./package-lock.json && npm install"
+  },
+  "author": "Lee JungJoon <leejj90@naver.com>"
+}

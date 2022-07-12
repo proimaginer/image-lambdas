@@ -1,0 +1,125 @@
+{
+  "service": {
+    "service": "image-lambda-layers",
+    "serviceObject": {
+      "name": "image-lambda-layers"
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "nodejs14.x",
+      "stage": "dev",
+      "region": "ap-northeast-2",
+      "deploymentBucket": "serverless-deploy-source",
+      "deploymentPrefix": "serverless",
+      "versionFunctions": true,
+      "environment": {},
+      "deploymentBucketObject": {
+        "name": "serverless-deploy-source",
+        "serverSideEncryption": "AES256"
+      },
+      "compiledCloudFormationTemplate": {
+        "AWSTemplateFormatVersion": "2010-09-09",
+        "Description": "The AWS CloudFormation template for this Serverless application",
+        "Resources": {
+          "ModulesLambdaLayer": {
+            "Type": "AWS::Lambda::LayerVersion",
+            "Properties": {
+              "Content": {
+                "S3Bucket": "serverless-deploy-source",
+                "S3Key": "serverless/image-lambda-layers/dev/1657291742060-2022-07-08T14:49:02.060Z/modules.zip"
+              },
+              "LayerName": "image-modules-dev",
+              "Description": "image-lambdas node_modules lambda layer",
+              "CompatibleRuntimes": [
+                "nodejs14.x"
+              ]
+            }
+          }
+        },
+        "Outputs": {
+          "ServerlessDeploymentBucketName": {
+            "Value": "serverless-deploy-source",
+            "Export": {
+              "Name": "sls-image-lambda-layers-dev-ServerlessDeploymentBucketName"
+            }
+          },
+          "ModulesLambdaLayerQualifiedArn": {
+            "Description": "Current Lambda layer version",
+            "Value": {
+              "Ref": "ModulesLambdaLayer"
+            },
+            "Export": {
+              "Name": "sls-image-lambda-layers-dev-ModulesLambdaLayerQualifiedArn"
+            }
+          },
+          "ModulesLambdaLayerHash": {
+            "Description": "Current Lambda layer hash",
+            "Value": "6ae332fbb8a9d13422ea726ab0d87d0c5e9a54dd",
+            "Export": {
+              "Name": "sls-image-lambda-layers-dev-ModulesLambdaLayerHash"
+            }
+          },
+          "ModulesLambdaLayerS3Key": {
+            "Description": "Current Lambda layer S3Key",
+            "Value": "serverless/image-lambda-layers/dev/1657291742060-2022-07-08T14:49:02.060Z/modules.zip",
+            "Export": {
+              "Name": "sls-image-lambda-layers-dev-ModulesLambdaLayerS3Key"
+            }
+          }
+        }
+      }
+    },
+    "plugins": [
+      "serverless-dotenv-plugin",
+      "serverless-latest-layer-version"
+    ],
+    "pluginsData": {},
+    "functions": {},
+    "configValidationMode": "warn",
+    "serviceFilename": "serverless.yml",
+    "initialServerlessConfig": {
+      "service": "image-lambda-layers",
+      "useDotenv": true,
+      "variablesResolutionMode": "20210326",
+      "plugins": {
+        "$ref": "$[\"service\"][\"plugins\"]"
+      },
+      "provider": {
+        "$ref": "$[\"service\"][\"provider\"]"
+      },
+      "layers": {
+        "modules": {
+          "path": "./modules",
+          "name": "image-modules-dev",
+          "description": "image-lambdas node_modules lambda layer",
+          "compatibleRuntimes": {
+            "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"ModulesLambdaLayer\"][\"Properties\"][\"CompatibleRuntimes\"]"
+          },
+          "package": {
+            "artifact": "/Users/my/git/image-lambdas/layers/.serverless/modules.zip"
+          }
+        }
+      },
+      "package": {
+        "patterns": [
+          "!.gitmodules",
+          "!.git/**",
+          "!.idea/**",
+          "!package-lock.json",
+          "!package.json"
+        ],
+        "artifactsS3KeyDirname": "serverless/image-lambda-layers/dev/code-artifacts",
+        "deploymentBucket": "serverless-deploy-source",
+        "artifactDirectoryName": "serverless/image-lambda-layers/dev/1657291742060-2022-07-08T14:49:02.060Z"
+      }
+    },
+    "layers": {
+      "$ref": "$[\"service\"][\"initialServerlessConfig\"][\"layers\"]"
+    },
+    "isDashboardMonitoringPreconfigured": false
+  },
+  "package": {
+    "artifactDirectoryName": "serverless/image-lambda-layers/dev/1657291742060-2022-07-08T14:49:02.060Z",
+    "artifact": ""
+  }
+}

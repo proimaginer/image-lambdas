@@ -1,0 +1,51 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "The AWS CloudFormation template for this Serverless application",
+  "Resources": {
+    "ModulesLambdaLayer": {
+      "Type": "AWS::Lambda::LayerVersion",
+      "Properties": {
+        "Content": {
+          "S3Bucket": "serverless-deploy-source",
+          "S3Key": "serverless/image-lambda-layers/dev/1657291742060-2022-07-08T14:49:02.060Z/modules.zip"
+        },
+        "LayerName": "image-modules-dev",
+        "Description": "image-lambdas node_modules lambda layer",
+        "CompatibleRuntimes": [
+          "nodejs14.x"
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "ServerlessDeploymentBucketName": {
+      "Value": "serverless-deploy-source",
+      "Export": {
+        "Name": "sls-image-lambda-layers-dev-ServerlessDeploymentBucketName"
+      }
+    },
+    "ModulesLambdaLayerQualifiedArn": {
+      "Description": "Current Lambda layer version",
+      "Value": {
+        "Ref": "ModulesLambdaLayer"
+      },
+      "Export": {
+        "Name": "sls-image-lambda-layers-dev-ModulesLambdaLayerQualifiedArn"
+      }
+    },
+    "ModulesLambdaLayerHash": {
+      "Description": "Current Lambda layer hash",
+      "Value": "6ae332fbb8a9d13422ea726ab0d87d0c5e9a54dd",
+      "Export": {
+        "Name": "sls-image-lambda-layers-dev-ModulesLambdaLayerHash"
+      }
+    },
+    "ModulesLambdaLayerS3Key": {
+      "Description": "Current Lambda layer S3Key",
+      "Value": "serverless/image-lambda-layers/dev/1657291742060-2022-07-08T14:49:02.060Z/modules.zip",
+      "Export": {
+        "Name": "sls-image-lambda-layers-dev-ModulesLambdaLayerS3Key"
+      }
+    }
+  }
+}

@@ -19,20 +19,16 @@ provider:
   versionFunctions: false # optional, default is true
   vpc:
     securityGroupIds:
-      - sg-02224391ccca1a03c
+      - sg-072db964942e34407
     subnetIds:
-      - subnet-0413a36471a09c093
-      - subnet-07cc0e089f53ac45e
-  logs:
-    restApi:
-      executionLogging: true # CloudWatch 설정 -> CloudWatch 로그 활성화 true / false
-      level: ERROR # CloudWatch 설정 -> 로그 수준 INFO or ERROR.
-      fullExecutionData: false # CloudWatch 설정 -> 전체 요청/응답 데이터 로깅 true / false
-      accessLogging: false # 사용자 지정 액세스 로깅 -> 액세스 로그 활성화 true / false
+      - subnet-00b9499b2e3d3640c
+      - subnet-0281dcc4ee8e51d84
   deploymentBucket:
-    name: image-deploy-source
+    name: serverless-deploy-source
     serverSideEncryption: AES256
   deploymentPrefix: serverless
+  environment:
+    LAYER_MODULES: arn:aws:lambda:ap-northeast-2:931620604955:layer:image-modules-${opt:stage}:latest
 
 functions: ${file(./src/functions.yml)}
 
