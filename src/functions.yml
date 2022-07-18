@@ -3,29 +3,29 @@ GallerySetImg:
   handler: src/gallery/setImg.handler
   package:
     patterns:
-      - 'src/gallery/setImg.js'
+      - 'src/gallery/**'
   events:
     - s3:
-        bucket: 
+        bucket: ${self:custom.s3_bucket}
         event: s3:ObjectCreated:*
         existing: true
         rules:
-          - prefix: potocard/
+          - prefix: community/gallery/img
   layers:
-    - {env:LAYER_MODULES}
+    - ${self:custom.node_modules_layer}
 
 # /gallery 썸네일 이미지 생성 함수
-GalleryThmbn:
-  handler: src/gallery/setThmbn.handler
-  package:
-    patterns:
-      - 'src/gallery/setThmbn.js'
-  events:
-    - s3:
-        bucket: 
-        event: s3:ObjectCreated:*
-        existing: true
-        rules:
-          - prefix: potocard/
-  layers:
-    - {env:LAYER_MODULES}
+# GalleryThmbn:
+#   handler: src/gallery/setThmbn.handler
+#   package:
+#     patterns:
+#       - 'src/gallery/**'
+#   events:
+#     - s3:
+#         bucket: ${self:custom.s3_bucket}
+#         event: s3:ObjectCreated:*
+#         existing: true
+#         rules:
+#           - prefix: community/gallery/thmbn
+#   layers:
+#     - {env:LAYER_MODULES}

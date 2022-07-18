@@ -16,7 +16,7 @@ provider:
   stage: ${opt:stage}
   region: ap-northeast-2
   deploymentBucket:
-    name: serverless-deploy-source
+    name: image-deploy-source
     serverSideEncryption: AES256
   deploymentPrefix: serverless
 

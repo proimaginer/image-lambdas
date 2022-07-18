@@ -49,7 +49,7 @@ Thumbs.db
 *.wmv
 
 # Serverless
-.serverless/**
+.serverless
 
 # Test
 test

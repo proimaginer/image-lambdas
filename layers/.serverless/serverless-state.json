@@ -9,12 +9,12 @@
       "runtime": "nodejs14.x",
       "stage": "dev",
       "region": "ap-northeast-2",
-      "deploymentBucket": "serverless-deploy-source",
+      "deploymentBucket": "image-deploy-source",
       "deploymentPrefix": "serverless",
       "versionFunctions": true,
       "environment": {},
       "deploymentBucketObject": {
-        "name": "serverless-deploy-source",
+        "name": "image-deploy-source",
         "serverSideEncryption": "AES256"
       },
       "compiledCloudFormationTemplate": {
@@ -25,8 +25,8 @@
             "Type": "AWS::Lambda::LayerVersion",
             "Properties": {
               "Content": {
-                "S3Bucket": "serverless-deploy-source",
-                "S3Key": "serverless/image-lambda-layers/dev/1657291742060-2022-07-08T14:49:02.060Z/modules.zip"
+                "S3Bucket": "image-deploy-source",
+                "S3Key": "serverless/image-lambda-layers/dev/1657978657019-2022-07-16T13:37:37.019Z/modules.zip"
               },
               "LayerName": "image-modules-dev",
               "Description": "image-lambdas node_modules lambda layer",
@@ -38,7 +38,7 @@
         },
         "Outputs": {
           "ServerlessDeploymentBucketName": {
-            "Value": "serverless-deploy-source",
+            "Value": "image-deploy-source",
             "Export": {
               "Name": "sls-image-lambda-layers-dev-ServerlessDeploymentBucketName"
             }
@@ -54,14 +54,14 @@
           },
           "ModulesLambdaLayerHash": {
             "Description": "Current Lambda layer hash",
-            "Value": "6ae332fbb8a9d13422ea726ab0d87d0c5e9a54dd",
+            "Value": "8b2a09d37327eca86d9b4ce84f8aae4057003c7f",
             "Export": {
               "Name": "sls-image-lambda-layers-dev-ModulesLambdaLayerHash"
             }
           },
           "ModulesLambdaLayerS3Key": {
             "Description": "Current Lambda layer S3Key",
-            "Value": "serverless/image-lambda-layers/dev/1657291742060-2022-07-08T14:49:02.060Z/modules.zip",
+            "Value": "serverless/image-lambda-layers/dev/1657978657019-2022-07-16T13:37:37.019Z/modules.zip",
             "Export": {
               "Name": "sls-image-lambda-layers-dev-ModulesLambdaLayerS3Key"
             }
@@ -97,7 +97,8 @@
           },
           "package": {
             "artifact": "/Users/my/git/image-lambdas/layers/.serverless/modules.zip"
-          }
+          },
+          "artifactAlreadyUploaded": true
         }
       },
       "package": {
@@ -109,8 +110,8 @@
           "!package.json"
         ],
         "artifactsS3KeyDirname": "serverless/image-lambda-layers/dev/code-artifacts",
-        "deploymentBucket": "serverless-deploy-source",
-        "artifactDirectoryName": "serverless/image-lambda-layers/dev/1657291742060-2022-07-08T14:49:02.060Z"
+        "deploymentBucket": "image-deploy-source",
+        "artifactDirectoryName": "serverless/image-lambda-layers/dev/1658108386452-2022-07-18T01:39:46.452Z"
       }
     },
     "layers": {
@@ -119,7 +120,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/image-lambda-layers/dev/1657291742060-2022-07-08T14:49:02.060Z",
+    "artifactDirectoryName": "serverless/image-lambda-layers/dev/1658108386452-2022-07-18T01:39:46.452Z",
     "artifact": ""
   }
 }

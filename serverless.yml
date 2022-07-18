@@ -19,16 +19,24 @@ provider:
   versionFunctions: false # optional, default is true
   vpc:
     securityGroupIds:
-      - sg-072db964942e34407
+      - sg-0eaff0ab58013cc7a
     subnetIds:
-      - subnet-00b9499b2e3d3640c
-      - subnet-0281dcc4ee8e51d84
+      - subnet-0ed2cfccf29ae0f2f
+      - subnet-08ac84bc889fd73f3
   deploymentBucket:
-    name: serverless-deploy-source
+    name: image-deploy-source
     serverSideEncryption: AES256
   deploymentPrefix: serverless
-  environment:
-    LAYER_MODULES: arn:aws:lambda:ap-northeast-2:931620604955:layer:image-modules-${opt:stage}:latest
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - "s3:GetObject"
+        - "s3:PutObject"
+      Resource: "arn:aws:s3:::gs-image"
+
+custom:
+  node_modules_layer: arn:aws:lambda:ap-northeast-2:501954793022:layer:image-modules-${opt:stage}:latest
+  s3_bucket: gs-image
 
 functions: ${file(./src/functions.yml)}
 
@@ -48,5 +56,5 @@ package:
     - '!package-lock.json'
     - '!README.md'
     - '!node_modules/**'
-    - '!layer/**'
+    - '!layers/**'
     - '!src/**'

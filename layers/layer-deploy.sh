@@ -4,4 +4,4 @@
 cd ./modules/nodejs
 npm run update
 cd ../..
-npm run deploy:$1
+sls deploy --stage $1
