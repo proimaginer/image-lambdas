@@ -20,6 +20,7 @@
   "scripts": {
     "update": "npm cache clean --force && rm -rf ./node_modules && rm -rf ./package-lock.json && npm install",
     "deploy:dev": "sls deploy --stage dev",
+    "deploy:stg": "sls deploy --stage stg",
     "deploy:prd": "sls deploy --stage prd"
   }
 }
