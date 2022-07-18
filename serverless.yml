@@ -21,8 +21,8 @@ provider:
     securityGroupIds:
       - sg-0eaff0ab58013cc7a
     subnetIds:
-      - subnet-0ed2cfccf29ae0f2f
-      - subnet-08ac84bc889fd73f3
+      - subnet-0b7cfaafe9a77d6eb
+      - subnet-0d123ce55a6c87253
   deploymentBucket:
     name: image-deploy-source
     serverSideEncryption: AES256
@@ -30,9 +30,11 @@ provider:
   iamRoleStatements:
     - Effect: Allow
       Action:
-        - "s3:GetObject"
-        - "s3:PutObject"
-      Resource: "arn:aws:s3:::gs-image"
+        - 's3:GetObject'
+        - 's3:PutObject'
+      Resource:
+        - 'arn:aws:s3:::gs-image'
+        - 'arn:aws:s3:::gs-image/*'
 
 custom:
   node_modules_layer: arn:aws:lambda:ap-northeast-2:501954793022:layer:image-modules-${opt:stage}:latest

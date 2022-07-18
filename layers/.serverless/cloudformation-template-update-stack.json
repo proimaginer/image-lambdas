@@ -7,7 +7,7 @@
       "Properties": {
         "Content": {
           "S3Bucket": "image-deploy-source",
-          "S3Key": "serverless/image-lambda-layers/dev/1657978657019-2022-07-16T13:37:37.019Z/modules.zip"
+          "S3Key": "serverless/image-lambda-layers/dev/1658116710240-2022-07-18T03:58:30.240Z/modules.zip"
         },
         "LayerName": "image-modules-dev",
         "Description": "image-lambdas node_modules lambda layer",
@@ -35,14 +35,14 @@
     },
     "ModulesLambdaLayerHash": {
       "Description": "Current Lambda layer hash",
-      "Value": "8b2a09d37327eca86d9b4ce84f8aae4057003c7f",
+      "Value": "2f83ce403d06df8faa273c80ce475ef5079e4698",
       "Export": {
         "Name": "sls-image-lambda-layers-dev-ModulesLambdaLayerHash"
       }
     },
     "ModulesLambdaLayerS3Key": {
       "Description": "Current Lambda layer S3Key",
-      "Value": "serverless/image-lambda-layers/dev/1657978657019-2022-07-16T13:37:37.019Z/modules.zip",
+      "Value": "serverless/image-lambda-layers/dev/1658116710240-2022-07-18T03:58:30.240Z/modules.zip",
       "Export": {
         "Name": "sls-image-lambda-layers-dev-ModulesLambdaLayerS3Key"
       }
